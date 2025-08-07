@@ -1,120 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="author" content="Bintang Bagas"/>
-  <title>Bintang Bagas - Web Developer</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bagas. | Your Brand, Reinvented Through Technology</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/js.js"></script>
+  </head>
+  <body class="bg-[#070B09] text-white font-sans">
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <div id="lenis-wrapper">
+      <nav
+        class="sticky top-0 z-50 px-4 py-4 bg-[#0000] h-16"
+        data-lenis-prevent
+      >
+        <div class="max-w-5xl mx-auto flex justify-between items-center h-full">
+          <!-- Logo -->
+          <div
+            class="text-2xl font-normal tracking-wide"
+            style="font-family: 'TitleFont'"
+          >
+            bagas.
+          </div>
 
-    header {
-      background: #1f2937;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+          <!-- Menu -->
+          <ul class="hidden md:flex space-x-6 text-sm font-medium">
+            <li>
+              <a
+                href="#about"
+                class="hover:text-[#68cc58] transition font-mono text-base"
+                >ABOUT ME</a
+              >
+            </li>
+            <li>
+              <a
+                href="#portfolio"
+                class="hover:text-[#68cc58] transition font-mono text-base"
+                >PORTFOLIO</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="hover:text-[#68cc58] transition font-mono text-base"
+                >EXPERIENCE</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-[#68cc58] transition font-mono text-base"
+                >CONTACT</a
+              >
+            </li>
+          </ul>
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+          <!-- Mobile Hamburger -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="focus:outline-none">
+              <svg
+                class="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-    }
+      <!-- Panel 1: Hitam -->
+      <section
+        class="panel bg-[#070B09] px-4 md:px-6 h-screen flex items-center overflow-hidden"
+        style="will-change: transform"
+      >
+        <div id="bagas-fixed" class="max-w-5xl mx-auto w-full">
+          <div
+            class="w-full md:max-w-3xl leading-tight font-bold text-white text-5xl md:text-7xl transform -translate-y-8 md:-translate-y-16"
+            style="font-family: 'MWSans'"
+          >
+            <!-- BAGAS - Terseleksi -->
+            <span class="select-none">B</span
+            ><span class="select-text">uild </span>
+            <span class="select-none">A</span
+            ><span class="select-text">esthetic </span>
+            <span class="select-none">G</span
+            ><span class="select-text">rowth. </span><br />
+            <span class="select-none">A</span
+            ><span class="select-text">chieve </span>
+            <span class="select-none">S</span
+            ><span class="select-text">calability</span>
+            <span class="select-none">.</span>
+          </div>
+        </div>
+      </section>
 
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+      <!-- Panel 2: Abu-abu -->
+      <section
+        class="panel bg-[#1e1e1e] px-4 md:px-6 h-screen flex items-center"
+      >
+        <div
+          class="max-w-5xl mx-auto w-full text-white text-3xl font-bold"
+          style="font-family: 'MWSans'"
+        >
+          This is the second section
+        </div>
+      </section>
+    </div>
+    <!-- End Section -->
 
-    section {
-      margin-bottom: 40px;
-    }
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 space-y-2">
+      <a
+        href="#about"
+        class="block text-sm hover:text-[#68cc58] font-mono text-base"
+        >ABOUT ME</a
+      >
+      <a
+        href="#portfolio"
+        class="block text-sm hover:text-[#68cc58] font-mono text-base"
+        >PORTFOLIO</a
+      >
+      <a
+        href="#experience"
+        class="block text-sm hover:text-[#68cc58] font-mono text-base"
+        >EXPERIENCE</a
+      >
+      <a
+        href="#contact"
+        class="block text-sm hover:text-[#68cc58] font-mono text-base"
+        >CONTACT</a
+      >
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.31/bundled/lenis.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.3.8/dist/lenis.css"
+    />
 
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 8px;
-    }
+    <script>
+      gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-    .project {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
+      const lenis = new Lenis({
+        wrapper: document.querySelector("#lenis-wrapper"),
+        content: document.querySelector("#lenis-wrapper"),
+        duration: 1,
+        easing: (t) => t,
+      });
 
-    footer {
-      background: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
+      // ScrollTrigger untuk pin panel
+      document.querySelectorAll(".panel").forEach((panel) => {
+        ScrollTrigger.create({
+          trigger: panel,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+        });
+      });
 
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Bintang Bagas</h1>
-    <p>Web Developer • Mobile Enthusiast • Tech Explorer</p>
-  </header>
+      // Scroll smooth untuk anchor link
+      document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+          }
+        });
+      });
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hello! I'm Bintang, an aspiring full-stack developer with experience in building responsive web and mobile apps. I enjoy learning new technologies and solving real-world problems with code.</p>
-    </section>
+      ScrollTrigger.refresh();
+    </script>
 
-    <section id="projects">
-      <h2>Projects</h2>
-
-      <div class="project">
-        <h3>Coman - Absensi Guru</h3>
-        <p>Web app for school attendance management using PHP (CodeIgniter), MySQL, and custom admin dashboard.</p>
-        <p><strong>Tech Stack:</strong> PHP, CI3, JS, Bootstrap</p>
-        <p><a href="#">View Demo</a></p>
-      </div>
-
-      <div class="project">
-        <h3>Portofolio Website</h3>
-        <p>This website! Built to showcase my skills and projects.</p>
-        <p><strong>Tech Stack:</strong> HTML, CSS, GitHub Pages</p>
-        <p><a href="#">GitHub Repository</a></p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>You can reach me via:</p>
-      <ul>
-        <li>Email: bintang@example.com</li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/bintangbagas">linkedin.com/in/bintangbagas</a></li>
-        <li>GitHub: <a href="https://github.com/bintangbagas">github.com/bintangbagas</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Bintang Bagas • All rights reserved</p>
-    <p><small>This site is for personal and non-commercial use only. Attribution required if referenced. See LICENSE.</small></p>
-  </footer>
-</body>
+    <!-- JS toggle menu -->
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+    <div id="cursor-circle"></div>
+  </body>
 </html>

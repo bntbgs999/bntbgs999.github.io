@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "TitleFont";
+  src: url("../fonts/titlefonts.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MWSans";
+  src: url("../fonts/MWSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MWSans";
+  src: url("../fonts/MWSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Webkit */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+  cursor: url("../display/arrow.cur"), auto;
+}
+/* Lingkaran cursor */
+#cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid white; /* Outline putih tipis */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out;
+  z-index: 9999;
+  background: transparent; /* Tanpa fill */
+}
+
+/* Saat klik: mengecil sebentar */
+#cursor-circle.clicked {
+  animation: clickPulse 0.3s ease-out;
+}
+
+@keyframes clickPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+::selection {
+  color: #0000;
+  background-color: #0000; /* sama seperti body */
+}
+
+::-moz-selection {
+  color: #0000;
+  background-color: #0000;
+}
+/* Reset dasar untuk panel */
+.panel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Pastikan tidak ada scroll yang tidak diinginkan */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+#lenis-wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Untuk layar kecil, kurangi scale */
+@media (max-width: 768px) {
+  .globe-container {
+    transform: scale(0.8);
+    transform-origin: right center;
+  }
+}
+/* Gunakan Space Mono dari Google */
+.font-mono {
+  font-family: "Space Mono", monospace;
+}
+
+.hover-box {
+  position: absolute;
+  border: 1px solid #1ad259;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.hover-area:hover .hover-box {
+  opacity: 1;
+}
