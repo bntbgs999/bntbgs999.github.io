@@ -103,6 +103,12 @@ body {
     transform-origin: right center;
   }
 }
+@media (max-width: 768px) {
+  #cursor-circle {
+    display: none !important;
+  }
+}
+
 /* Gunakan Space Mono dari Google */
 .font-mono {
   font-family: "Space Mono", monospace;
