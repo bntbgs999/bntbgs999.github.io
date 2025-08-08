@@ -138,10 +138,10 @@
       style="height: 500vh; background-color: #e4e6ff"
     ></section>
 
-    <!-- <section
+    <section
       id="section3"
       style="height: 300vh; background-color: #2d348f"
-    ></section> -->
+    ></section>
 
     <!-- End Section -->
 
@@ -302,7 +302,7 @@
         scrollTrigger: {
           trigger: document.body,
           start: "top top",
-          end: "+=1500",
+          end: "+=400",
           scrub: 1,
           markers: true,
           onRefresh: (self) => {
@@ -310,12 +310,25 @@
             self.end -= 50;
           },
           onLeave: () => {
-            gsap.to("#section2", { autoAlpha: 1, duration: 1 });
+            // saat dot-img selesai scaling
+            gsap.to("#section2", {
+              autoAlpha: 1,
+              duration: 1,
+            });
           },
           onEnterBack: () => {
-            gsap.to("#section2", { autoAlpha: 0, duration: 0.5 });
+            // kalau scroll balik ke atas, sembunyikan lagi
+            gsap.to("#section2", {
+              autoAlpha: 0,
+              duration: 0.5,
+            });
           },
         },
+        x: offsetX,
+        y: offsetY,
+        scale: neededScale,
+        transformOrigin: "center center",
+        ease: "none",
         keyframes: [
           {
             // fase 1 - geser ke tengah + scale awal sampai nyentuh top body

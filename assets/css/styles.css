@@ -198,6 +198,9 @@ nav {
 }
 nav {
   transition: color 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
 .nav-white * {
