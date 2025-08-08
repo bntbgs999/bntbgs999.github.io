@@ -21,14 +21,15 @@
 /* Webkit */
 ::-webkit-scrollbar {
   display: none;
-  width: 0;
-  height: 0;
+  width: 100px;
+  height: 100px;
 }
 
 /* Firefox */
 * {
   scrollbar-width: none;
-  scrollbar-color: transparent transparent;
+  scrollbar-color: white blue;
+  /*color transparent transparent  */
   cursor: url("../display/arrow.cur"), auto;
 }
 /* Lingkaran cursor */
@@ -45,6 +46,7 @@
   transition: transform 0.1s ease-out;
   z-index: 9999;
   background: transparent; /* Tanpa fill */
+  mix-blend-mode: difference; /* kuncinya di sini */
 }
 
 /* Saat klik: mengecil sebentar */
@@ -83,19 +85,6 @@
 }
 
 /* Pastikan tidak ada scroll yang tidak diinginkan */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  height: 100%;
-}
-#lenis-wrapper {
-  height: 100vh;
-  overflow-y: auto;
-  position: relative;
-}
-
 /* Untuk layar kecil, kurangi scale */
 @media (max-width: 768px) {
   .globe-container {
@@ -124,4 +113,111 @@ body {
 
 .hover-area:hover .hover-box {
   opacity: 1;
+}
+
+/* Perbaikan untuk dot animation */
+/* ... kode CSS sebelumnya ... */
+/* Default untuk versi PC (≥ 769px) */
+/* .y-wrapper {
+  position: absolute;
+  display: inline-block;
+  left: 35.7rem;
+}
+
+
+
+/* Kompensasi tinggi navbar */
+.panel:first-child {
+  padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative; /* Tambahkan ini */
+}
+#section1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* tetap memenuhi layar */
+  overflow: hidden;
+}
+
+#section1 .content-wrapper {
+  position: absolute;
+  top: 50%; /* posisi tengah relatif terhadap tinggi body */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; /* atur sesuai desain */
+  text-align: left;
+}
+.bagas-fixed {
+  position: fixed;
+  transform: translate(-50%, -50%); /* ini membuat dia center di viewport */
+  width: fit-content; /* atau lebar sesuai kebutuhan */
+  text-align: left; /* supaya teks tetap rata kiri */
+}
+
+.dot-img {
+  position: absolute;
+  max-width: 100%;
+  width: 6px;
+  height: 6px;
+  left: 100%; /* tepat di kanan huruf y */
+  bottom: 0; /* sejajar bagian bawah huruf */
+  transform: translateY(2px); /* fine tuning geser sedikit */
+  z-index: 0; /* Di belakang navbar */
+}
+/* Add this to your styles.css */
+.dot-img.zoomed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 10;
+  opacity: 0;
+  transition: none;
+}
+nav {
+  backdrop-filter: none;
+  background: transparent;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  padding: 1rem 0;
+  mix-blend-mode: difference; /* kuncinya di sini */
+}
+nav {
+  transition: color 0.3s ease;
+}
+
+.nav-white * {
+  color: white !important;
+}
+
+.nav-black * {
+  color: black !important;
+}
+nav {
+  pointer-events: none;
+}
+nav * {
+  pointer-events: auto; /* biar link di dalam nav masih bisa diklik */
+}
+/* Tambahkan ini untuk mencegah flash saat transisi */
+#lenis-wrapper {
+  min-height: 100%;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 1; /* Pastikan di bawah navbar */
 }
