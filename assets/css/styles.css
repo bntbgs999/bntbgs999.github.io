@@ -208,7 +208,16 @@ nav {
   backface-visibility: hidden;
   transform: translateZ(0); /* Trigger hardware acceleration */
 }
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem 1rem; /* Padding lebih kecil di mobile */
+  }
 
+  /* Pastikan konten tidak tertutup navbar */
+  body {
+    padding-top: 60px; /* Sesuaikan dengan tinggi navbar */
+  }
+}
 /* Hapus fungsi keepNavbarOnTop() dari JS karena tidak diperlukan lagi */
 nav {
   transition: color 0.3s ease;
