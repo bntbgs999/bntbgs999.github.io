@@ -33,7 +33,8 @@
   <body class="bg-[#070B09] text-white font-sans">
     <!-- Navbar -->
     <!-- Navbar -->
-    <nav class="sticky top-0 left-0 right-0 z-50 px-4 py-4">
+    <!-- <nav class="sticky top-0 left-0 right-0 z-50 px-4 py-4"> -->
+    <nav>
       <div class="max-w-5xl mx-auto flex justify-between items-center h-full">
         <!-- Logo -->
         <div
@@ -270,7 +271,7 @@
       // Sinkronkan Lenis dengan GSAP
       function raf(time) {
         lenis.raf(time);
-        keepNavbarOnTop();
+        // keepNavbarOnTop();
         updateNavbarColor();
         requestAnimationFrame(raf);
       }
@@ -302,7 +303,7 @@
         scrollTrigger: {
           trigger: document.body,
           start: "top top",
-          end: "+=400",
+          end: "+=800",
           scrub: 1,
           markers: true,
           onRefresh: (self) => {

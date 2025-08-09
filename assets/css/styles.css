@@ -185,7 +185,7 @@ body {
   opacity: 0;
   transition: none;
 }
-nav {
+/* nav {
   backdrop-filter: none;
   background: transparent;
   z-index: 50;
@@ -194,8 +194,22 @@ nav {
   right: 0;
   background-color: transparent;
   padding: 1rem 0;
-  mix-blend-mode: difference; /* kuncinya di sini */
+  mix-blend-mode: difference; 
+} /* kuncinya di sini */
+nav {
+  position: fixed; /* Ganti dari sticky ke fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 0;
+  mix-blend-mode: difference;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* Trigger hardware acceleration */
 }
+
+/* Hapus fungsi keepNavbarOnTop() dari JS karena tidak diperlukan lagi */
 nav {
   transition: color 0.3s ease;
   will-change: transform;
