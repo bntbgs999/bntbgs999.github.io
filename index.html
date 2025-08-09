@@ -261,17 +261,106 @@
         }
       }
 
+      // const lenis = new Lenis({
+      //   duration: 1.5, // makin besar makin lambat (default 1.2)
+      //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easing halus
+      //   smoothWheel: true,
+      //   smoothTouch: true,
+      // });
+
+      // // Sinkronkan Lenis dengan GSAP
+      // function raf(time) {
+      //   lenis.raf(time);
+      //   // keepNavbarOnTop();
+      //   updateNavbarColor();
+      //   requestAnimationFrame(raf);
+      // }
+      // requestAnimationFrame(raf);
+
+      // lenis.on("scroll", ScrollTrigger.update);
+
+      // const dot = document.querySelector(".dot-img");
+      // const rect = dot.getBoundingClientRect();
+      // const centerX = window.innerWidth / 2;
+      // const centerY = window.innerHeight / 2;
+
+      // // Hitung jarak dari posisi awal dot ke tengah layar
+      // const offsetX = centerX - (rect.left + rect.width / 2);
+      // const offsetY = centerY - (rect.top + rect.height / 2);
+
+      // // Hitung ukuran lingkaran yang dibutuhkan untuk nutup layar diagonal
+      // const diagonal = Math.sqrt(
+      //   window.innerWidth ** 2 + window.innerHeight ** 2
+      // );
+      // const initialSize = rect.width;
+      // const neededScale = diagonal / (initialSize / 2);
+
+      // // Tinggi dari posisi dot-img ke top body
+      // const topDistance = rect.top;
+
+      // // Satu animasi dengan keyframes
+      // gsap.to(".dot-img", {
+      //   scrollTrigger: {
+      //     trigger: document.body,
+      //     start: "top top",
+      //     end: "+=800",
+      //     scrub: 1,
+      //     markers: true,
+      //     onRefresh: (self) => {
+      //       self.start -= 50;
+      //       self.end -= 50;
+      //     },
+      //     onLeave: () => {
+      //       // saat dot-img selesai scaling
+      //       gsap.to("#section2", {
+      //         autoAlpha: 1,
+      //         duration: 1,
+      //       });
+      //     },
+      //     onEnterBack: () => {
+      //       // kalau scroll balik ke atas, sembunyikan lagi
+      //       gsap.to("#section2", {
+      //         autoAlpha: 0,
+      //         duration: 0.5,
+      //       });
+      //     },
+      //   },
+      //   x: offsetX,
+      //   y: offsetY,
+      //   scale: neededScale,
+      //   transformOrigin: "center center",
+      //   ease: "none",
+      //   keyframes: [
+      //     {
+      //       // fase 1 - geser ke tengah + scale awal sampai nyentuh top body
+      //       x: offsetX,
+      //       y: offsetY,
+      //       scale: neededScale * 0.5, // skala sementara sebelum full
+      //       ease: "none",
+      //       duration: topDistance / 400, // proporsi durasi dari total scroll
+      //     },
+      //     {
+      //       // fase 2 - hanya scale lanjut, Y tetap
+      //       x: offsetX,
+      //       y: offsetY - topDistance, // Y tetap di posisi saat sudah nyentuh atas
+      //       scale: neededScale,
+      //       ease: "none",
+      //       duration: 1 - topDistance / 400,
+      //     },
+      //   ],
+      // });
+
+      // awalnya section2 disembunyikan
+      // gsap.set("#section2", { autoAlpha: 0 });
       const lenis = new Lenis({
-        duration: 1.5, // makin besar makin lambat (default 1.2)
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easing halus
+        duration: 1.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         smoothTouch: true,
       });
 
-      // Sinkronkan Lenis dengan GSAP
       function raf(time) {
         lenis.raf(time);
-        // keepNavbarOnTop();
         updateNavbarColor();
         requestAnimationFrame(raf);
       }
@@ -284,47 +373,18 @@
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
 
-      // Hitung jarak dari posisi awal dot ke tengah layar
       const offsetX = centerX - (rect.left + rect.width / 2);
       const offsetY = centerY - (rect.top + rect.height / 2);
-
-      // Hitung ukuran lingkaran yang dibutuhkan untuk nutup layar diagonal
       const diagonal = Math.sqrt(
         window.innerWidth ** 2 + window.innerHeight ** 2
       );
       const initialSize = rect.width;
       const neededScale = diagonal / (initialSize / 2);
-
-      // Tinggi dari posisi dot-img ke top body
       const topDistance = rect.top;
 
-      // Satu animasi dengan keyframes
+      gsap.set("#section2", { autoAlpha: 0 });
+
       gsap.to(".dot-img", {
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "+=800",
-          scrub: 1,
-          markers: true,
-          onRefresh: (self) => {
-            self.start -= 50;
-            self.end -= 50;
-          },
-          onLeave: () => {
-            // saat dot-img selesai scaling
-            gsap.to("#section2", {
-              autoAlpha: 1,
-              duration: 1,
-            });
-          },
-          onEnterBack: () => {
-            // kalau scroll balik ke atas, sembunyikan lagi
-            gsap.to("#section2", {
-              autoAlpha: 0,
-              duration: 0.5,
-            });
-          },
-        },
         x: offsetX,
         y: offsetY,
         scale: neededScale,
@@ -332,26 +392,56 @@
         ease: "none",
         keyframes: [
           {
-            // fase 1 - geser ke tengah + scale awal sampai nyentuh top body
             x: offsetX,
             y: offsetY,
-            scale: neededScale * 0.5, // skala sementara sebelum full
+            scale: neededScale * 0.5,
             ease: "none",
-            duration: topDistance / 400, // proporsi durasi dari total scroll
+            duration: topDistance / 400,
           },
           {
-            // fase 2 - hanya scale lanjut, Y tetap
             x: offsetX,
-            y: offsetY - topDistance, // Y tetap di posisi saat sudah nyentuh atas
+            y: offsetY - topDistance,
             scale: neededScale,
             ease: "none",
             duration: 1 - topDistance / 400,
           },
         ],
-      });
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          // end: "+=800",
+          end: () => window.innerHeight * 1.2, // 120% viewport height, bisa di-tweak
+          scrub: 1,
+          markers: true,
+          onRefresh: (self) => {
+            self.start -= 50;
+            self.end -= 50;
 
-      // awalnya section2 disembunyikan
-      gsap.set("#section2", { autoAlpha: 0 });
+            // Reset visibilitas section2 saat refresh berdasarkan posisi scroll
+            if (self.progress >= 1) {
+              gsap.set("#section2", { autoAlpha: 1 });
+            } else {
+              gsap.set("#section2", { autoAlpha: 0 });
+            }
+          },
+          onLeave: () => {
+            // Scroll melewati akhir animasi, tampilkan section2
+            gsap.to("#section2", { autoAlpha: 1, duration: 1 });
+          },
+          onEnterBack: () => {
+            // Scroll balik ke atas, sembunyikan section2
+            gsap.to("#section2", { autoAlpha: 0, duration: 0.5 });
+          },
+          onUpdate: (self) => {
+            // Optional: bisa dipakai untuk smooth fade in/out section2 di tengah scroll
+            if (self.progress >= 1) {
+              gsap.to("#section2", { autoAlpha: 1, duration: 0.3 });
+            } else {
+              gsap.to("#section2", { autoAlpha: 0, duration: 0.3 });
+            }
+          },
+        },
+      });
     </script>
 
     <!-- JS toggle menu -->
